@@ -8,10 +8,14 @@ var prepareForWeather = require('./prepared-for-the-weather');
 
 var commandLineArgs = require("command-line-args");
 
-var cli = commandLineArgs([
-    { name: "location", alias: "l", type: String, defaultValue: "London" }
-]);
-var location = cli.parse().location;
+// Define CLI options
+const optionDefinitions = [
+  { name: "location", alias: "l", type: String, defaultValue: "London" }
+];
+
+// Parse CLI arguments
+const options = commandLineArgs(optionDefinitions);
+const location = options.location;
 
 /* Fetch weather data */
 fetchWeather.fetchWeather(location,
@@ -26,7 +30,7 @@ fetchWeather.fetchWeather(location,
         ];
 
         /* Iterate over each item and print to console */
-        for(key in weatherKit){
+        for (let key in weatherKit){
             printLine(weatherKit[key].value, weatherKit[key].name);
         }
     }

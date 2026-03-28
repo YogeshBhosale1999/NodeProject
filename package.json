@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node app.js --location London",
     "test": "mocha --reporter mocha-sonarqube-reporter test --reporter-options output=xunit.xml",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha --dir ./reports/coverage"
   },
